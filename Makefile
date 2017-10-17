@@ -1,2 +1,2 @@
 vagrant-deploy: 
-	./hack/deploy.sh
+	./cluster/deploy.sh
