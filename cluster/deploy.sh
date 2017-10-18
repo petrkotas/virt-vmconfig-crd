@@ -1,11 +1,8 @@
-KUBEVIRT="$GOPATH/src/kubevirt.io/kubevirt/"
-KUBECTL="$KUBEVIRT/cluster/kubectl.sh"
+#!/bin/bash
 
-# We need to grab absolute path to all manifests since we'll have to pushd
-# later on.
-MANIFESTS=$(find $(pwd)/manifests -name *.yaml)
+KUBECTL="cluster/kubectl.sh"
+MANIFESTS=$(ls manifests/*.yaml);
 
-pushd $KUBEVIRT
 # This is a pattern taken from kubevirt:
 # first, we delete the manifests that were previously deployed,
 for i in $MANIFESTS; do
@@ -20,4 +17,3 @@ echo "Deploying ..."
 for i in $MANIFESTS; do
     $KUBECTL create -f $i
 done
-popd
