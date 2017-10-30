@@ -1,2 +1,4 @@
 vagrant-deploy: 
-	./cluster/deploy.sh
+	./cluster/kubevirt-deploy.sh
+
+
